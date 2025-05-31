@@ -1,0 +1,45 @@
+{
+  "indicator": [
+    {
+      "name": "sma20",
+      "type": "sma",
+      "param": {
+        "length": 20
+      }
+    },
+    {
+      "name": "sma50",
+      "type": "sma",
+      "param": {
+        "length": 50
+      }
+    }
+  ],
+  "long": {
+    "entry": [
+      {
+        "condition": "sma20[2] < sma50[2] and sma20 > sma50",
+        "policy": {
+          "portion": {
+            "of": "accountBalance",
+            "ratio": 1
+          }
+        }
+      }
+    ],
+    "exit": [
+      {
+        "condition": "sma20[2] > sma50[2] and sma20 < sma50",
+        "policy": {
+          "portion": {
+            "of": "accountBalance",
+            "ratio": 1
+          }
+        }
+      }
+    ]
+  },
+  "short": [
+
+  ]
+}
